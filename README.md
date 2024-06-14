@@ -23,7 +23,10 @@ To use this GUI controller, follow these steps:
 
 For astrophotography, there is a feature that allows you to take a test focus shot using the following settings: 2.5-second exposure, ISO 6400, manual focus, and more (additional settings are in the `set_focus_parameters` function in the Python files). This will take a image and show a preview of a mid-sized thumbnail (10-15 seconds to get the image). If the image is in focus, click "Continue." If not, make a focus adjustment and click "Adjust Focus" to retake the image to see if there is a improvement.
 
-
+<div style="text-align:center;">
+    <img src="MidThumnail_preview.DNG.jpg" alt="YI-M1-Gui" width="400"/>
+    <img src="Astro.jpg.png" alt="YI-M1-Gui" width="400"/>
+</div>
 
 # original Readme
 
