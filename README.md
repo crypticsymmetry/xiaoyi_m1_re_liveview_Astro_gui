@@ -1,6 +1,9 @@
 # Python GUI controller for Yi M1, built on top of github.com/bullbin/xiaoyi_m1_re_liveview.
 
-YiM1GUI.png
+
+<div style="text-align:center;">
+    <img src="YiM1GUI.png" alt="YI-M1-Gui" width="400"/>
+</div>
 
 Beware it a bit clunky.. 
 To use this GUI controller, follow these steps:
