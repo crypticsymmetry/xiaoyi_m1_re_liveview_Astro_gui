@@ -2,15 +2,18 @@
 Beware it a bit clunky.. 
 To use this GUI controller, follow these steps:
 
-1. Run the `m1astro.py` file.
-2. Ensure the camera is close to the WiFi/BT device.
-3. Click the "Connect" button. You should see a pop-up on the Yi M1 to accept the connection. If you don't, try moving the camera closer to the device and try again. (sometimes it will take a few trys)
-4. Once the connection is successful, two pop-ups will appear. One will show the WiFi name and password, and the other will have a button that says "Start Live View" along with the password.
-5. Before starting anything, connect to the Yi M1 WiFi using the provided password.
-6. Click "Start Live View." A live view window will open, showing a preview.
-7. Adjust the settings as needed and click "Set Parameters" to apply all changes.
+1. Download the github repo.
+2. Run the `m1astro.py` file.
+3. Ensure the camera is close to the WiFi/BT device.
+4. Click the "Connect" button. You should see a pop-up on the Yi M1 to accept the connection. If you don't, try moving the camera closer to the device and try again. (sometimes it will take a few trys)
+5. Once the connection is successful, two pop-ups will appear. One will show the WiFi name and password, and the other will have a button that says "Start Live View" along with the password.
+6. Before starting anything, connect to the Yi M1 WiFi using the provided password.
+7. Click "Start Live View." A live view window will open, showing a preview.
+8. Adjust the settings as needed and click "Set Parameters" to apply all changes.
+9. go to the capture tab to start capturing Astro images, set the number of shots and interval between shots (typically just 0)
+10. Gallery Tab: Optionally you can load images (which gets all files from the camera and downloads each image as a Mid sized thumbnail to "captured_images/thumbnails" folder) (Be aware its fairly slow 10-15 seconds a image) also a option to download the selected full sized image. (very slow maybe 3-5 minutes)
 
-For astrophotography, there is a feature that allows you to take a test focus shot using the following settings: 2.5-second exposure, ISO 6400, manual focus, and more (additional settings are in the `set_focus_parameters` function in the Python files). This will show a preview of a mid-sized thumbnail. If the image is in focus, click "Continue." If not, make a focus adjustment and click "Adjust Focus" to retake the image to see if there is a improvement.
+For astrophotography, there is a feature that allows you to take a test focus shot using the following settings: 2.5-second exposure, ISO 6400, manual focus, and more (additional settings are in the `set_focus_parameters` function in the Python files). This will take a image and show a preview of a mid-sized thumbnail (10-15 seconds to get the image). If the image is in focus, click "Continue." If not, make a focus adjustment and click "Adjust Focus" to retake the image to see if there is a improvement.
 
 
 
