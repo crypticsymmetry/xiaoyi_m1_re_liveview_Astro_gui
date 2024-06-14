@@ -1,3 +1,21 @@
+# Python GUI controller for Yi M1, built on top of github.com/bullbin/xiaoyi_m1_re_liveview.
+Beware it a bit clunky.. 
+To use this GUI controller, follow these steps:
+
+1. Run the `m1astro.py` file.
+2. Ensure the camera is close to the WiFi/BT device.
+3. Click the "Connect" button. You should see a pop-up on the Yi M1 to accept the connection. If you don't, try moving the camera closer to the device and try again. (sometimes it will take a few trys)
+4. Once the connection is successful, two pop-ups will appear. One will show the WiFi name and password, and the other will have a button that says "Start Live View" along with the password.
+5. Before starting anything, connect to the Yi M1 WiFi using the provided password.
+6. Click "Start Live View." A live view window will open, showing a preview.
+7. Adjust the settings as needed and click "Set Parameters" to apply all changes.
+
+For astrophotography, there is a feature that allows you to take a test focus shot using the following settings: 2.5-second exposure, ISO 6400, manual focus, and more (additional settings are in the `set_focus_parameters` function in the Python files). This will show a preview of a mid-sized thumbnail. If the image is in focus, click "Continue." If not, make a focus adjustment and click "Adjust Focus" to retake the image to see if there is a improvement.
+
+
+
+# original Readme
+
 # Xiaoyi Yi M1 Camera Wireless Protocol Reverse Engineering
 The Yi M1 was Xiaoyi's first (and last) attempt at a sleek and modern M4/3 camera. While it never received the support it needed to iron out the remaining quirks of the firmware, the final package produces great images and can be found very cheap on the second-hand market. Along with updates, Yi released a now-abandoned app for remote control of the camera; unfortunately, this is long outdated and increasingly harder to run. Since my usage of the camera needs this feature, I ended up looking into the protocols required to replicate the Yi Mirrorless app functionality; this repo contains a proof-of-concept for triggering a connection handshake with the camera over Bluetooth and decoding the live view feed returned.
 
