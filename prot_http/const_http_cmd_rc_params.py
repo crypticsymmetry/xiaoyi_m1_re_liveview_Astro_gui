@@ -13,16 +13,16 @@ class RcMeteringMode(str, Enum):
 
 class RcExposureMode(str, Enum):
     Auto = "Auto"
-    Program = "P"
+    Program = "AperturePriority"
     AperturePriority = "A"
-    ShutterPriority = "S"
-    Manual = "M"
-    MasterGuide = "C"
+    ShutterPriority = "ShutterPriority"
+    Manual = "Manual"
+    MasterGuide = "MasterGuide"
 
 class RcFocusMode(str, Enum):
-    ContrastAutofocus = "C-AF"
-    SingleAreaAutofocus = "S-AF"
-    ManualFocus = "MF"
+    ContrastAutofocus = "ContrastAutofocus"
+    SingleAreaAutofocus = "SingleAreaAutofocus"
+    ManualFocus = "ManualFocus"
 
 class RcImageQuality(str, Enum):
     MP50_Interpolated = "50"

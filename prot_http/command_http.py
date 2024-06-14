@@ -13,29 +13,24 @@ class YiHttpCmd():
         raise NotImplementedError
 
 class CmdFileList(YiHttpCmd):
-    def __init__(self, permit_raw : bool = False, permit_jpg : bool = False, id_start : int = 0, id_end : int = 0):
-        """List images on camera.
-
-        Args:
-            permit_raw (bool, optional): Allow DNG images. Defaults to False.
-            permit_jpg (bool, optional): Allow JPEG images. Defaults to False.
-            id_start (int, optional): Index of starting image. Defaults to 0.
-            id_end (int, optional): Index of ending image. Defaults to 0.
-        """
+    def __init__(self, permit_raw: bool = False, permit_jpg: bool = False):
         super().__init__()
-        self.__filetype : str = "all"
-        if permit_raw:
-            if not(permit_jpg):
-                self.__filetype : str = "DNG"
-        elif permit_jpg:
-            self.__filetype : str = "JPG"
-        
-        self.__range_start : int = max(id_start, 0)
-        self.__range_end : int = max(id_end, self.__range_start)
+        self.permit_raw = permit_raw
+        self.permit_jpg = permit_jpg
 
     def to_json(self) -> Dict[str, str]:
-        return {"command":YiHttpCmdId.CMD_FILE_LIST.value, "range_start":str(self.__range_start),
-                "range_end":str(self.__range_end), "filetype":self.__filetype}
+        filetype = "all"
+        if self.permit_raw and not self.permit_jpg:
+            filetype = "DNG"
+        elif not self.permit_raw and self.permit_jpg:
+            filetype = "JPG"
+        
+        return {
+            "command": "GetFileList",
+            "range_start": "0",
+            "range_end": "999",  # Assuming 999 is a large enough number to get all files
+            "filetype": filetype
+        }
 
 class CmdFileDelete(YiHttpCmd):
     def __init__(self, photo_paths : List[str]):
@@ -44,15 +39,52 @@ class CmdFileDelete(YiHttpCmd):
     
     def to_json(self) -> Dict[str, str]:
         return {"command":YiHttpCmdId.CMD_FILE_DELETE.value, "file_list":self.__paths}
+    
+class CmdGetCameraStatus(YiHttpCmd):
+    def __init__(self):
+        super().__init__()
+
+    def to_json(self) -> Dict[str, str]:
+        return {"command": "GetCameraStatus"}
 
 class CmdFileGet(YiHttpCmd):
-    def __init__(self, path_file : str, quality : CmdEnumFileQuality):
+    def __init__(self, path_file: str):
         super().__init__()
         self.__path = path_file
-        self.__quality = quality
     
     def to_json(self) -> Dict[str, str]:
-        return {"command":YiHttpCmdId.CMD_FILE_GET.value, "path":self.__path, "resulotion":self.__quality.value}
+        return {
+            "command": "GetFile",
+            "path": self.__path,
+            "date": "",
+            "resulotion": "Original"  # Note the correct spelling might be "resolution", adjust if needed
+        }
+
+class CmdFileGetMidThumb(YiHttpCmd):
+    def __init__(self, path_file: str):
+        super().__init__()
+        self.__path = path_file
+    
+    def to_json(self) -> Dict[str, str]:
+        return {
+            "command": "GetFile",
+            "path": self.__path,
+            "date": "",
+            "resulotion": "MidThumb"  # Note the correct spelling might be "resolution", adjust if needed
+        }
+
+class CmdFileGetThumbnail(YiHttpCmd):
+    def __init__(self, path_file: str):
+        super().__init__()
+        self.__path = path_file
+    
+    def to_json(self) -> Dict[str, str]:
+        return {
+            "command": "GetFile",
+            "path": self.__path,
+            "date": "",
+            "resulotion": "Thumbnail"  # Note the correct spelling might be "resolution", adjust if needed
+        }
 
 class CmdLiveViewStart(YiHttpCmd):
     def to_json(self) -> Dict[str, str]:
@@ -178,3 +210,19 @@ class RcCmdStart(YiHttpCmd):
 class RcCmdStop(YiHttpCmd):
     def to_json(self) -> Dict[str, str]:
         return {"command":YiHttpCmdId.CMD_RC_STOP.value}
+    
+class RcCmdGetCameraConfig(YiHttpCmd):
+    def to_json(self) -> Dict[str, str]:
+        return {"command": YiHttpCmdId.CMD_RC_GET_CAMERA_CONFIG.value}
+
+class RcCmdFocus(YiHttpCmd):
+    def to_json(self) -> Dict[str, str]:
+        return {"command": YiHttpCmdId.CMD_RC_FOCUS.value}
+
+class RcCmdAdjustMF(YiHttpCmd):
+    def __init__(self, adjustment_value: int):
+        super().__init__()
+        self.__adjustment_value = adjustment_value
+
+    def to_json(self) -> Dict[str, str]:
+        return {"command": YiHttpCmdId.CMD_RC_ADJUST_MF.value, "adjustment_value": str(self.__adjustment_value)}
