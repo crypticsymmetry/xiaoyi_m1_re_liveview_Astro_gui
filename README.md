@@ -25,7 +25,7 @@ For astrophotography, there is a feature that allows you to take a test focus sh
 
 <div style="text-align:center;">
     <img src="MidThumnail_preview.DNG.jpg" alt="YI-M1-Gui" width="400"/>
-    <img src="Astro.jpg.png" alt="YI-M1-Gui" width="400"/>
+    <img src="Astro.DNG.jpg" alt="YI-M1-Gui" width="400"/>
 </div>
 
 # original Readme
