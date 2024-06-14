@@ -29,7 +29,9 @@ For astrophotography, there is a feature that allows you to take a test focus sh
     <img src="MidThumnail_preview.DNG.jpg" alt="YI-M1-Gui" width="600"/>
     <img src="Astro.DNG.jpg" alt="YI-M1-Gui" width="600"/>
 </div>
-single exposure 1-2 seconds/iso 6400, static mount
+single exposure 1-2 seconds/iso 6400, static mount, 500mm mirror lens
+
+
 # original Readme
 
 # Xiaoyi Yi M1 Camera Wireless Protocol Reverse Engineering
