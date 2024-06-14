@@ -3,6 +3,8 @@
 
 <div style="text-align:center;">
     <img src="YiM1GUI.png" alt="YI-M1-Gui" width="400"/>
+    <img src="YiM1GUI_connect.png" alt="YI-M1-Gui" width="400"/>
+    <img src="YiM1GUI_LiveView.png" alt="YI-M1-Gui" width="400"/>
 </div>
 
 Beware it a bit clunky.. 
